@@ -31,10 +31,16 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.earthquake_list_item,parent,false);
         }
+        // Find the earthquake at the given position in the list of earthquakes
         Earthquake currentEarthquake = getItem(position);
 
+        // Find the TextView with view ID magnitude
         TextView magnitudeView = (TextView)listItemView.findViewById(R.id.mag);
+
+        // Format the magnitude to show 1 decimal place
         String formattedMagnitude = formatMagnitude(currentEarthquake.getMagnitude());
+
+        // Display the magnitude of the current earthquake in that TextView
         magnitudeView.setText(formattedMagnitude);
 
         /**
